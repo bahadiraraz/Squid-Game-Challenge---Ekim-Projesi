@@ -61,7 +61,7 @@ class TestDf(unittest.TestCase):
 
 	def setUp(self):
 		warnings.simplefilter('ignore', category=ResourceWarning)
-		print("Test is running...")
+		
 
 	def tearDown(self):
 		pass
