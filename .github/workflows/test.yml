@@ -21,5 +21,4 @@ jobs:
       - name: Test with unittest
         run: |
           pip install -r requirements.txt
-          pip install -e .
           python -m unittest discover -v
