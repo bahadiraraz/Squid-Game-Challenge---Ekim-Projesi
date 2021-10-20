@@ -12,7 +12,7 @@ run this command in current file path
   - python -m unittest discover -v
 
 
-# CI/CD in github action
+# CI/CD on github action
 ![image](https://user-images.githubusercontent.com/48323786/138114425-ce3dc572-72a2-4aa6-92a9-719b6dd78ec2.png)
 
 # showcase
