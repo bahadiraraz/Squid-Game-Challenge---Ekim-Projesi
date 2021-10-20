@@ -3,7 +3,7 @@ import cv2 as cv2
 import warnings
 import numpy as np
 
-frame = cv2.imread("../images/tc6oq6g.jpg")
+frame = cv2.imread("images/tc6oq6g.jpg")
 kernal = np.ones((5, 5), "uint8")
 hsvframe = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
