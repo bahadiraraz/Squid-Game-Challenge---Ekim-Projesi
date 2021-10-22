@@ -1,4 +1,4 @@
-import unittest
+mport unittest
 import cv2 as cv2
 import warnings
 import numpy as np
@@ -62,8 +62,8 @@ class TestDf(unittest.TestCase):
 		print("-" * 50)
 
 	def setUp(self):
+		# ignore ResourceWarning
 		warnings.simplefilter('ignore', category=ResourceWarning)
-		
 
 	def tearDown(self):
 		pass
@@ -73,8 +73,10 @@ class TestDf(unittest.TestCase):
 		countours = sorted(countours_red, key=cv2.contourArea, reverse=True)[:1]
 		for c in countours:
 			area = cv2.contourArea(c)
+			# test area is float
 			self.assertIsInstance(area, float)
 			number += 1
+		# test number of red triangle is 1
 		self.assertEqual(number, 1)
 
 	def test_blue_umbrella(self):
@@ -82,8 +84,10 @@ class TestDf(unittest.TestCase):
 		countours = sorted(countours_blue, key=cv2.contourArea, reverse=True)[:1]
 		for c in countours:
 			area = cv2.contourArea(c)
+			# test area is float
 			self.assertIsInstance(area, float)
 			number += 1
+		# test number of blue umbrella is 1
 		self.assertEqual(number, 1)
 
 	def test_green_circle(self):
@@ -93,8 +97,10 @@ class TestDf(unittest.TestCase):
 			area = cv2.contourArea(c)
 			x1, y1, w1, h1 = cv2.boundingRect(c)
 			if area > 800 and 1500 < y1 < 2500 and abs(w1 - h1) < 50:
+				# test area is float
 				self.assertIsInstance(area, float)
 				number += 1
+		# test number of green circle is 1
 		self.assertEqual(number, 1)
 
 	def test_yellow_star(self):
@@ -105,7 +111,7 @@ class TestDf(unittest.TestCase):
 			self.assertIsInstance(area, float)
 			number += 1
 		self.assertEqual(number, 1)
-	
+
 	def test_white_triangle(self):
 		number = 0
 		countours = sorted(countours_white, key=cv2.contourArea, reverse=True)[:100]
@@ -113,10 +119,13 @@ class TestDf(unittest.TestCase):
 			area = cv2.contourArea(c)
 			x1, y1, w1, h1 = cv2.boundingRect(c)
 			if 700 < area < 1800 and 2000 < y1 < 2200:
+				# test area is float
 				self.assertIsInstance(area, float)
-				number +=1
+				number += 1
+		# test number of white triangle is 5
 		self.assertEqual(number, 5)
-	
+
 
 if __name__ == "__main__":
+	#run all test
 	unittest.main(warnings='ignore')
