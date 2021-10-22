@@ -13,7 +13,7 @@ run this command in current file path
 
 
 # CI/CD on github action
-![image](https://user-images.githubusercontent.com/48323786/138114425-ce3dc572-72a2-4aa6-92a9-719b6dd78ec2.png)
+![image](https://user-images.githubusercontent.com/48323786/138443705-7d311f07-8aa9-4d42-9b4c-210a1ef3924c.png)
 
 
 # showcase
