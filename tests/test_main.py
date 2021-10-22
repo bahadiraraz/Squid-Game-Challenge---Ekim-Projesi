@@ -105,7 +105,18 @@ class TestDf(unittest.TestCase):
 			self.assertIsInstance(area, float)
 			number += 1
 		self.assertEqual(number, 1)
-
+	
+	def test_white_triangle(self):
+		number = 0
+		countours = sorted(countours_white, key=cv2.contourArea, reverse=True)[:100]
+		for c in countours:
+			area = cv2.contourArea(c)
+			x1, y1, w1, h1 = cv2.boundingRect(c)
+			if 700 < area < 1800 and 2000 < y1 < 2200:
+				self.assertIsInstance(area, float)
+				number +=1
+		self.assertEqual(number, 4)
+	
 
 if __name__ == "__main__":
 	unittest.main(warnings='ignore')
