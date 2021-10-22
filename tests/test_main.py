@@ -115,7 +115,7 @@ class TestDf(unittest.TestCase):
 			if 700 < area < 1800 and 2000 < y1 < 2200:
 				self.assertIsInstance(area, float)
 				number +=1
-		self.assertEqual(number, 4)
+		self.assertEqual(number, 5)
 	
 
 if __name__ == "__main__":
