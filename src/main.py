@@ -123,7 +123,7 @@ while True:
 					(0, 255, 255),
 					5,
 				)
-	if time.time() - first_time > 9:
+	if time.time() - first_time > 15:
 		countours = sorted(countours_white, key=cv2.contourArea, reverse=True)[:100]
 		for contour in countours:
 			area = cv2.contourArea(contour)
