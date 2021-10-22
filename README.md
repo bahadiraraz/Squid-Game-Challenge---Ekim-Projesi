@@ -1,5 +1,5 @@
 # Squid-Game-Challenge-Ekim-Projesi
-OpenCV  based shape detection project for lunizz
+Pure OpenCV  based shape detection project for lunizz
 
 
 # how to setup
