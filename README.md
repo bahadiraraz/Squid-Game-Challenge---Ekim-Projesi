@@ -17,4 +17,5 @@ run this command in current file path
 
 
 # showcase
-![lunizz](https://user-images.githubusercontent.com/48323786/138105655-e24515b2-f02d-463d-99ff-1b4ec22ffc80.gif)
+![lunizz2](https://user-images.githubusercontent.com/48323786/138441021-deec3372-0a79-4b5d-be5a-bc20c4858fc5.gif)
+
