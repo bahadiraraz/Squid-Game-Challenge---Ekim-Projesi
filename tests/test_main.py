@@ -4,6 +4,7 @@ import warnings
 import numpy as np
 
 frame = cv2.imread("images/tc6oq6g.jpg")
+frame = cv2.resize(frame, (0, 0), fx=5, fy=5)
 kernal = np.ones((5, 5), "uint8")
 hsvframe = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -38,16 +39,17 @@ black_mask = cv2.dilate(black_mask, kernal)
 res_black = cv2.bitwise_and(frame, frame, mask=black_mask)
 
 white_lower = np.array([0, 0, 200], np.uint8)
-white_upper = np.array([180, 30, 255], np.uint8)
+white_upper = np.array([255, 255, 255], np.uint8)
 white_mask = cv2.inRange(hsvframe, white_lower, white_upper)
 white_mask = cv2.dilate(white_mask, kernal)
 res_white = cv2.bitwise_and(frame, frame, mask=white_mask)
+
 
 countours_green = cv2.findContours(green_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 countours_red = cv2.findContours(red_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 countours_blue = cv2.findContours(blue_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 countours_yellow = cv2.findContours(yellow_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
-
+countours_white = cv2.findContours(white_mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 
 class TestDf(unittest.TestCase):
 
@@ -89,7 +91,8 @@ class TestDf(unittest.TestCase):
 		countours = sorted(countours_green, key=cv2.contourArea, reverse=True)[:2]
 		for c in countours:
 			area = cv2.contourArea(c)
-			if 9000 > area > 800:
+			x1, y1, w1, h1 = cv2.boundingRect(c)
+			if area > 800 and 1500 < y1 < 2500 and abs(w1 - h1) < 50:
 				self.assertIsInstance(area, float)
 				number += 1
 		self.assertEqual(number, 1)
